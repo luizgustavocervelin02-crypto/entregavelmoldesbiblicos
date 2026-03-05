@@ -1,0 +1,685 @@
+/* ==========================================================================
+   CSS Globais & Variáveis
+   ========================================================================== */
+:root {
+    /* Paleta Infantil e Cheia de Vida */
+    --color-primary: #FFB347;
+    /* Laranja divertido */
+    --color-primary-dark: #FF9800;
+    --color-secondary: #00BCD4;
+    /* Azul ciano vivo */
+    --color-secondary-dark: #0097A6;
+    --color-accent: #E91E63;
+    /* Rosa vibrante */
+
+    --color-blue: #4facfe;
+    --color-blue-dark: #00f2fe;
+    --color-green: #38ef7d;
+    --color-green-dark: #11998e;
+    --color-yellow: #ffd194;
+    --color-yellow-dark: #70e1f5;
+    --color-purple: #a18cd1;
+    --color-purple-dark: #fbc2eb;
+
+    --bg-color: #F0F9FF;
+    /* Fundo azul bem clarozinho, céu */
+    --text-color: #4A4A4A;
+    /* Cinza escuro para boa leitura */
+    --card-bg: #FFFFFF;
+
+    --font-heading: 'Fredoka', sans-serif;
+    --font-body: 'Nunito', sans-serif;
+
+    --border-radius: 24px;
+    --border-radius-sm: 12px;
+    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: #2D3748;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   Fundo Nuvem Flutuante (Background Decorativo)
+   ========================================================================== */
+.clouds-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: radial-gradient(circle at 50% 10%, #ffffff80 0%, transparent 40%),
+        radial-gradient(circle at 20% 40%, #ffffff60 0%, transparent 30%),
+        radial-gradient(circle at 80% 60%, #ffffff80 0%, transparent 40%);
+    background-size: 150% 150%;
+    z-index: -1;
+    animation: drift 20s infinite linear alternate;
+}
+
+@keyframes drift {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* ==========================================================================
+   Header Navbar
+   ========================================================================== */
+.header {
+    background: var(--card-bg);
+    padding: 15px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 4px solid var(--color-primary);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--color-primary);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo .highlight {
+    color: var(--color-secondary);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8f9fa;
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 2px solid #e2e8f0;
+}
+
+.avatar {
+    background: var(--color-secondary);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.3);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-primary-dark);
+}
+
+.logout-link {
+    font-size: 0.8rem;
+    color: #a0aec0;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.logout-link:hover {
+    color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Hero Section (Banner Principal)
+   ========================================================================== */
+.hero-section {
+    padding: 60px 0;
+    margin-top: 20px;
+}
+
+.hero-container {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border-radius: var(--border-radius);
+    padding: 50px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 15px 30px rgba(255, 152, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.hero-container::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: 10%;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+}
+
+.hero-text {
+    max-width: 600px;
+    z-index: 1;
+}
+
+.hero-text h2 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+.hero-decoration {
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    filter: drop-shadow(4px 10px 10px rgba(0, 0, 0, 0.2));
+}
+
+/* ==========================================================================
+   Materials Grid (Área de Downloads)
+   ========================================================================== */
+.materials-section {
+    padding: 40px 0 80px 0;
+    flex-grow: 1;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h3 {
+    font-size: 2.2rem;
+    color: var(--color-secondary-dark);
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    font-size: 1.1rem;
+    color: #718096;
+    font-weight: 600;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.material-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.material-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-image-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.material-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--color-accent);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    font-family: var(--font-heading);
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: #718096;
+    margin-bottom: 20px;
+}
+
+.features {
+    margin-bottom: 25px;
+}
+
+.features li {
+    font-size: 0.9rem;
+    color: #4A5568;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.features li i {
+    color: var(--color-secondary);
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+.btn-download {
+    margin-top: auto;
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Themes per card */
+.blue-theme {
+    border-color: var(--color-blue);
+}
+
+.blue-theme .btn-download {
+    background: linear-gradient(to right, var(--color-blue), var(--color-blue-dark));
+    box-shadow: 0 6px 15px rgba(79, 172, 254, 0.4);
+}
+
+.blue-theme h4 {
+    color: #0088cc;
+}
+
+.green-theme {
+    border-color: var(--color-green);
+}
+
+.green-theme .btn-download {
+    background: linear-gradient(to right, var(--color-green), var(--color-green-dark));
+    box-shadow: 0 6px 15px rgba(56, 239, 125, 0.4);
+}
+
+.green-theme h4 {
+    color: #009944;
+}
+
+.yellow-theme {
+    border-color: var(--color-primary);
+}
+
+.yellow-theme .btn-download {
+    background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+    box-shadow: 0 6px 15px rgba(255, 179, 71, 0.4);
+}
+
+.yellow-theme h4 {
+    color: var(--color-primary-dark);
+}
+
+.purple-theme {
+    border-color: var(--color-purple);
+}
+
+.purple-theme .btn-download {
+    background: linear-gradient(to right, var(--color-purple), var(--color-purple-dark));
+    box-shadow: 0 6px 15px rgba(161, 140, 209, 0.4);
+}
+
+.purple-theme h4 {
+    color: #8855cc;
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.btn-download:active {
+    transform: translateY(2px);
+}
+
+.btn-download.success {
+    background: #4CAF50 !important;
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4) !important;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+    background: #FFFFFF;
+    padding: 30px 0;
+    border-top: 2px dashed #CBD5E0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #718096;
+    font-weight: 600;
+}
+
+.parents-area {
+    display: flex;
+    gap: 20px;
+}
+
+.parents-area a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4A5568;
+    transition: var(--transition);
+}
+
+.parents-area a:hover {
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Animações
+   ========================================================================== */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.bounce {
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+.float-anim {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Tabs e Conteúdo de Boas-vindas
+   ========================================================================== */
+.tabs-container {
+    width: 100%;
+}
+
+.tabs-header {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    background: #E2E8F0;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4A5568;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn:hover {
+    background: #CBD5E0;
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 6px 15px rgba(255, 179, 71, 0.4);
+}
+
+.tab-content {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-box {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.welcome-image {
+    width: 100%;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 25px;
+}
+
+.welcome-text h4 {
+    font-size: 2rem;
+    color: var(--color-secondary-dark);
+    margin-bottom: 15px;
+}
+
+.welcome-text p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #4A5568;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.large-btn {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(to right, var(--color-accent), #FF4081);
+    box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
+}
+
+/* ==========================================================================
+   Responsividade
+   ========================================================================== */
+@media (max-width: 768px) {
+    .tabs-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero-decoration {
+        margin-top: 30px;
+        font-size: 6rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
